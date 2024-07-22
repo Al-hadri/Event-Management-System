@@ -1,2 +1,2 @@
-- 👋 Hi, I’m @Al-hadri Team 2
+- 👋 Hi, We are Team Members 2
 - this a file about Event Management System
