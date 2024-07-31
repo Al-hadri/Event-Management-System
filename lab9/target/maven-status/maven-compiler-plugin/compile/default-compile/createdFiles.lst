@@ -1,0 +1,10 @@
+com\mycompany\lab9\AddEventServlet.class
+com\mycompany\lab9\LoginServlet.class
+com\mycompany\lab9\EditEventServlet.class
+com\mycompany\lab9\JakartaRestConfiguration.class
+com\mycompany\lab9\DeleteEventServlet.class
+com\mycompany\lab9\SearchServlet.class
+com\mycompany\lab9\Event.class
+com\mycompany\lab9\EventServlet.class
+com\mycompany\lab9\resources\JakartaEE10Resource.class
+com\mycompany\lab9\LogoutServlet.class
