@@ -1,4 +1,3 @@
-
 package com.e.ad;
 
 import java.io.IOException;
@@ -15,7 +14,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
@@ -24,9 +22,8 @@ public class LoginServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
-        // Database connection and validation logic
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
+            Class.forName("org.sqlite.JDBC");
             Connection con = DriverManager.getConnection("jdbc:sqlite:/Users/saifr/Documents/Database/Users.db");
 
             String query = "SELECT * FROM users WHERE username = ? AND password = ?";
@@ -38,7 +35,7 @@ public class LoginServlet extends HttpServlet {
             if (rs.next()) {
                 HttpSession session = request.getSession();
                 session.setAttribute("username", username);
-                response.sendRedirect("welcome.jsp");
+                response.sendRedirect("index.jsp"); // Redirect to index.jsp after successful login
             } else {
                 request.setAttribute("status", "failure");
                 RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");

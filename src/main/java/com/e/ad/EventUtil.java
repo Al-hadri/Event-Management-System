@@ -1,4 +1,3 @@
-
 package com.e.ad;
 
 import java.sql.Connection;
@@ -6,7 +5,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 
 public class EventUtil {
 
@@ -17,9 +15,8 @@ public class EventUtil {
         ResultSet rs = null;
 
         try {
-            // Load the JDBC driver
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            
+       
+
             // Establish a database connection
             con = DriverManager.getConnection("jdbc:sqlite:/Users/saifr/Documents/Database/Users.db");
 
@@ -40,7 +37,7 @@ public class EventUtil {
                     rs.getString("event_description")
                 );
             }
-        } catch (ClassNotFoundException | SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             // Close resources
