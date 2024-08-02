@@ -57,7 +57,7 @@
                   <label class="form-label" for="password">Password</label>
                 </div>
 
-                <p class="small mb-5 pb-lg-2"><a class="text-white-50 animate__animated animate__fadeInUp" href="#!">Forgot password?</a></p>
+                
 
                 <button class="btn btn-outline-light btn-lg px-5 animate__animated animate__fadeInUp" type="submit">Login</button>
 
