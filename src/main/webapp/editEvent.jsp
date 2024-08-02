@@ -1,50 +1,55 @@
-
-<%@page import="com.e.ad.Event"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="com.e.ad.EventUtil" %>
+<%@ page import="com.e.ad.Event" %>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Edit Event</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Event</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    <h1>Edit Event</h1>
-    <%
-        String id = request.getParameter("id");
-        Event event = null;
+    <div class="container">
+        <h2>Edit Event</h2>
+        <%
+            String idStr = request.getParameter("id");
+            Event event = null;
 
-        if (id != null) {
-            try {
-                int eventId = Integer.parseInt(id);
-                event = EventUtil.getEventById(eventId);  // Fetch event details by ID
-            } catch (NumberFormatException e) {
-                // Handle the case where the ID is not a valid integer
-                out.println("<p>Error: Invalid event ID format.</p>");
+            if (idStr != null && !idStr.trim().isEmpty()) {
+                try {
+                    int eventId = Integer.parseInt(idStr);
+                    event = EventUtil.getEventById(eventId);
+                } catch (NumberFormatException e) {
+                    out.println("<p>Error: Invalid event ID format.</p>");
+                }
+            } else {
+                out.println("<p>Error: Event ID is missing.</p>");
             }
-        }
-
-        if (event != null) {
-    %>
-    <form action="EditEventServlet" method="post">
-        <input type="hidden" name="eventId" value="<%= event.getId() %>">
-        <label for="eventName">Event Name:</label>
-        <input type="text" id="eventName" name="eventName" value="<%= event.getName() %>" required><br>
-        <label for="eventDate">Event Date:</label>
-        <input type="date" id="eventDate" name="eventDate" value="<%= event.getDate() %>" required><br>
-        <label for="eventLocation">Event Location:</label>
-        <input type="text" id="eventLocation" name="eventLocation" value="<%= event.getLocation() %>" required><br>
-        <label for="eventType">Event Type:</label>
-        <input type="text" id="eventType" name="eventType" value="<%= event.getType() %>" required><br>
-        <label for="eventDescription">Event Description:</label>
-        <textarea id="eventDescription" name="eventDescription" required><%= event.getDescription() %></textarea><br>
-        <input type="submit" value="Update Event">
-    </form>
-    <%
-        } else {
-            // If event is null, display an error message or redirect
-            out.println("<p>Error: Event not found.</p>");
-        }
-    %>
-    <p>${status}</p>
+        %>
+        <form action="updateEventServlet" method="post">
+            <input type="hidden" name="id" value="<%= event != null ? event.getId() : "" %>">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" class="form-control" value="<%= event != null ? event.getName() : "" %>">
+            </div>
+            <div class="form-group">
+                <label for="date">Date</label>
+                <input type="text" id="date" name="date" class="form-control" value="<%= event != null ? event.getDate() : "" %>">
+            </div>
+            <div class="form-group">
+                <label for="location">Location</label>
+                <input type="text" id="location" name="location" class="form-control" value="<%= event != null ? event.getLocation() : "" %>">
+            </div>
+            <div class="form-group">
+                <label for="type">Type</label>
+                <input type="text" id="type" name="type" class="form-control" value="<%= event != null ? event.getType() : "" %>">
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <input type="text" id="description" name="description" class="form-control" value="<%= event != null ? event.getDescription() : "" %>">
+            </div>
+            <button type="submit" class="btn btn-primary">Update Event</button>
+        </form>
+    </div>
 </body>
 </html>

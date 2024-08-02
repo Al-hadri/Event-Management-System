@@ -27,23 +27,40 @@
             margin-top: 20px;
             font-size: 1.2em;
         }
+        .header {
+            background-color: #343a40;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .navbar-nav {
+            flex-direction: row;
+        }
+        .nav-item {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
     </style>
 </head>
 <body>
+    <div class="header">
+        <h1>Event Management System</h1>
+    </div>
     <div class="container">
-        <h1 class="mb-4 text-center">Event Management System</h1>
         <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
             <a class="navbar-brand" href="#">Event Management</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="listAllEvents.jsp">All Events</a>
-                    </li>
+                <ul class="navbar-nav">
+                 
                     <li class="nav-item">
                         <a class="nav-link" href="filterEvents.jsp">Search Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="EventListServlet">Edit Events</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="addEvent.jsp">Add Event</a>
@@ -58,8 +75,7 @@
             </div>
         </nav>
         <div class="content">
-            <p class="overview-text">Overview of upcoming events.</p>
-            
+            <p class="overview-text">Welcome to the Event Management System.</p>
         </div>
     </div>
 
