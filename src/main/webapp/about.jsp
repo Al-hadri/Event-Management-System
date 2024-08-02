@@ -50,7 +50,7 @@
         <ul class="list-group">
             <li class="list-group-item">Saif Hassan Ali Rudayni</li>
             <li class="list-group-item">Ryan Ali Ibrahim Jaafari</li>
-            <li class="list-group-item">Mofareh Ahmed Mohammed Al-Hadri</li>
+            <li class="list-group-item">Mofareh</li>
             <li class="list-group-item">Fras</li>
              <li class="list-group-item">Hassan</li>
       
